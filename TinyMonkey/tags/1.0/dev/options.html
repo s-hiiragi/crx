@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>TinyMonkeyの設定</title>
+
+<link rel="stylesheet" href="options.css" type="text/css" charset="UTF-8">
+
+<script src="libs/chromext_comm.js"></script>
+<script src="libs/jQuery.js"></script>
+<script src="libs/jQuery.hl.js"></script>
+<script src="libs/jsdeferred.js"></script>
+<script src="libs/jsdeferred-bindings/googlechrome-extensions.js"></script>
+<script>
+/* HTML, CSSの補助的な処理 */
+$(function(){
+	$('h1').text(document.title);  // document.titleと同じにする
+});
+</script>
+<script src="options.js"></script>
+
+</head>
+<body>
+
+<header>
+	<h1>&lt;dummy> の設定</h1>
+</header>
+
+<div id="content">
+	
+	<div>
+		<!-- 全ての設定に対する操作 -->
+		<div id="common-commands">
+			<label><input class="silent-remove" type="checkbox">削除確認をしない</label>
+			<input class="add-si" type="button" value="追加">
+			<input class="update-all-si" type="button" value="すべて更新">
+			<!-- <input class="remove-all-si" type="buton" value="すべて削除"> -->
+			<!-- <input class="export" type="button" value="エクスポート"> -->
+			<!-- <input class="import" type="button" value="インポート"> -->
+		</div>
+		<ul id="SITEINFO">
+			<li class="si-temp dom-template"><!-- 設定編集フォームのテンプレート -->
+				<input type="hidden" name="id" class="id">
+				<table>
+					<tr>
+						<th colspan="2"><input name="title" class="title" type="text"></th>
+					</tr>
+					<tr>
+						<th>URL</th>
+						<td>
+							<input name="url" class="url" type="url" value="http://">
+							<input class="open-url" type="button" value="開く">
+						</td>
+					</tr>
+					<tr>
+						<th>code</th>
+						<td><textarea name="code" class="code" cols="64" rows="4"></textarea></td>
+					</tr>
+					<!-- 設定に対する操作 -->
+					<tr>
+						<td class="commands" colspan="2">
+							<input class="update" type="button" value="更新" disabled="disabled">
+							<input class="remove" type="button" value="削除">
+							<input class="reload" type="button" value="再読込">
+						</td>
+					</tr>
+				</table>
+			</li>
+			<!-- 以降、設定編集フォームが動的に追加される -->
+		</ul>
+	</div>
+	
+</div><!-- /content -->
+
+<footer>
+</footer>
+
+</body>
+</html>

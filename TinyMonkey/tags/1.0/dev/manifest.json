@@ -1,0 +1,36 @@
+{
+	"name" : "TinyMonkey", 
+	"version" : "1.0", 
+	"description" : "This extension run tiny codes you inputted when a web is loaded.", 
+	
+	"background_page" : "background.html", 
+	"options_page" : "options.html", 
+	"content_scripts" : [
+		{
+			"js" : [
+				"libs/chromext_comm.js", 
+				"libs/jQuery.js", 
+				"content.js"
+			], 
+			"matches" : [
+				"<all_urls>"
+			], 
+			"run_at" : "document_idle", 
+			"all_frames" : false
+		}
+	], 
+	
+	"permissions" : [
+		"tabs", 
+		"bookmarks", 
+		"contextMenus", 
+		"history", 
+		"notifications", 
+		"pageCapture", 
+		"unlimitedStorage", 
+		"webRequest", 
+		"webRequestBlocking", 
+		"chrome://favicon/", 
+		"<all_urls>"
+	]
+}
