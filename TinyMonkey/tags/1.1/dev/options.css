@@ -1,0 +1,142 @@
+/* for options.html
+ */
+
+
+/* --- 全体に共通のスタイル --- */
+
+:root {
+	/* input, textarea以外のGUI部品のテキストは選択させない */
+	-webkit-user-select: none;
+	user-select: none;
+	
+	/* 全てのGUI部品のフォントを統一 */
+	font-family: monospace;
+}
+body {
+	padding : 10px;
+	background-color : #F8F8F8;
+}
+
+input, textarea {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	font-family: monospace;
+}
+textarea {
+	width: 100%;
+}
+
+/* 動的なDOM構築時にテンプレートとして使用するため、非表示にしておく */
+.dom-template { display: none; }
+
+/* ボタン等の間隔を開けるためのspan */
+span.gui-gap { margin-left: 2em; }
+div.gui-gap { margin-top: 1em; }
+
+
+
+/* --- 個別 --- */
+
+h1{
+	font-size : xx-large;
+	text-align : center;
+}
+
+#common-commands {
+	text-align: right;
+	font-size: small;
+}
+#common-commands .inexport {
+	vertical-align: middle;
+}
+#common-commands input[type="button"] {
+	min-width: 60px;
+	height: 30px;
+}
+
+#common-commands .inexport {
+	margin: 0px;
+	
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 90px;
+	height: 40px;
+}
+#common-commands .inexport.opened {
+	border: 1px solid black;
+	border-bottom: none;
+	border-radius: 5px;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+	margin-top: 1px;
+	margin-bottom: -1px;
+	background-color: #D8D8D8;
+	/*
+	background: -webkit-gradient(linear, left top, left bottom, from(#F8F8F8), color-stop(0.5, #F8F8F8), color-stop(0.51, #D8D8D8), to(#D8D8D8));
+	*/
+}
+#inexport-form {
+	border: 1px solid black;
+	border-radius: 5px;
+	border-top-right-radius: 0px;
+	padding: 10px;
+	background-color: #D8D8D8;
+	
+	/*
+	margin-top: 0.5em;
+	*/
+	display: none;
+}
+#inexport-form .tab-size {
+	width: 40px;
+}
+#inexport-form input {
+	height: 30px;
+}
+
+#SITEINFO {
+	padding-left: 0px;
+	margin: 0.5em 0px;
+	list-style-type: none;
+}
+#SITEINFO .si > table {
+	width: 100%;
+}
+#SITEINFO .si > table th {
+	width: 45px;
+		/* 各input[type="*"]の幅を動的に調整する際、調整後にthの幅が変化することによって
+		 * 基準となるinput[type="*"]を含むtdの幅が変化してしまうため、サイズ固定にしておく
+		 */
+	text-align: right;
+	padding-right: 5px;
+}
+#SITEINFO .si .title, 
+#SITEINFO .si .code {
+	width: 100%;
+}
+#SITEINFO .si .title {
+	background-color: #B8E8F8;
+	border: 1px solid #ABADB3;
+	padding: 4px;
+	font-size: 110%;
+	font-weight: bold;
+}
+#SITEINFO .si .url + input[type="button"] {
+	margin-left: 5px;
+}
+#SITEINFO .si .commands {
+	text-align: right;
+}
+#SITEINFO .si .commands input[type="button"] {
+	min-width: 60px;
+}
+
+#SITEINFO input[type="button"] {
+	height: 22px;
+}
+
+
+
+
+/* フィルタ条件に一致しないSITEINFOを隠す */
+.hidden { display: none; }
